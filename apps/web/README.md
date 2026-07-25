@@ -1,11 +1,20 @@
 # FootballFlip AI Web App
 
-Next.js frontend application.
+Next.js frontend application for football shirt discovery, AI analysis, deal hunting and portfolio tracking.
 
-Planned features:
+## Routes
 
-- Dashboard
-- Authentication
-- Shirt analysis
-- Opportunities
-- Portfolio
+- /
+- /dashboard
+- /scanner
+- /deals
+- /portfolio
+- /settings
+
+## Features
+
+- AI shirt analysis
+- Marketplace opportunities
+- Flip scoring
+- Portfolio tracking
+- WhatsApp deal alerts
