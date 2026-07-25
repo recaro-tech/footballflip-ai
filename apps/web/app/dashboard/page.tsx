@@ -10,15 +10,22 @@ export default function Dashboard(){
       buyPrice:65,
       estimatedValue:210,
       score:96
+    },
+    {
+      title:'Arsenal 2004 Invincibles Home Shirt',
+      marketplace:'eBay',
+      buyPrice:80,
+      estimatedValue:220,
+      score:91
     }
   ];
 
   return (
     <main>
       <h1>FootballFlip AI Trading Dashboard</h1>
-      <ProfitCard profit={145}/>
+      <ProfitCard profit={285}/>
       <DealTable deals={deals}/>
-      <AIRecommendation message="Retro Premier League shirts are showing strong demand. Monitor undervalued listings."/>
+      <AIRecommendation message="Two high-potential retro shirt opportunities identified. Review authenticity before purchase."/>
     </main>
   );
 }
