@@ -1,0 +1,66 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+ datasource db {
+  provider = "postgresql"
+  url = env("DATABASE_URL")
+}
+
+model User {
+  id String @id @default(uuid())
+  email String @unique
+  name String?
+  createdAt DateTime @default(now())
+
+  analyses ShirtAnalysis[]
+  listings Listing[]
+  collections CollectionItem[]
+}
+
+model Shirt {
+  id String @id @default(uuid())
+  club String
+  season String
+  manufacturer String?
+  estimatedValue Float?
+  rarityScore Int?
+
+  listings Listing[]
+}
+
+model Listing {
+  id String @id @default(uuid())
+  userId String
+  shirtId String?
+  marketplace String
+  title String
+  price Float
+  url String
+  createdAt DateTime @default(now())
+
+  user User @relation(fields:[userId], references:[id])
+  shirt Shirt? @relation(fields:[shirtId], references:[id])
+}
+
+model ShirtAnalysis {
+  id String @id @default(uuid())
+  userId String
+  imageUrl String
+  result Json
+  confidence Float
+  createdAt DateTime @default(now())
+
+  user User @relation(fields:[userId], references:[id])
+}
+
+model CollectionItem {
+  id String @id @default(uuid())
+  userId String
+  shirtId String
+  purchasePrice Float
+  currentValue Float?
+  createdAt DateTime @default(now())
+
+  user User @relation(fields:[userId], references:[id])
+}
