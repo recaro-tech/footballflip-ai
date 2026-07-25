@@ -1,0 +1,15 @@
+{
+  "name": "footballflip-ai",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AI football shirt discovery and resale intelligence platform",
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "services/*"
+  ],
+  "scripts": {
+    "dev": "echo 'Development environment coming soon'",
+    "build": "echo 'Build pipeline coming soon'"
+  }
+}
