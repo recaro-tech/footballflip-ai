@@ -9,7 +9,19 @@
     "services/*"
   ],
   "scripts": {
-    "dev": "echo 'Development environment coming soon'",
-    "build": "echo 'Build pipeline coming soon'"
+    "dev": "turbo run dev --parallel",
+    "build": "turbo run build",
+    "build:ci": "turbo run build --filter=!./node_modules",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "type-check": "turbo run type-check",
+    "clean": "turbo run clean && rm -rf node_modules dist .turbo"
+  },
+  "devDependencies": {
+    "turbo": "^1.10.16"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
   }
 }
