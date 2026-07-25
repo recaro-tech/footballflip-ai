@@ -2,15 +2,17 @@ generator client {
   provider = "prisma-client-js"
 }
 
- datasource db {
+datasource db {
   provider = "postgresql"
-  url = env("DATABASE_URL")
+  url      = env("DATABASE_URL")
 }
 
 model User {
   id String @id @default(uuid())
   email String @unique
   name String?
+  whatsapp String?
+  subscription String @default("free")
   createdAt DateTime @default(now())
 
   analyses ShirtAnalysis[]
@@ -25,8 +27,10 @@ model Shirt {
   manufacturer String?
   estimatedValue Float?
   rarityScore Int?
+  authenticityScore Int?
 
   listings Listing[]
+  collections CollectionItem[]
 }
 
 model Listing {
@@ -36,6 +40,7 @@ model Listing {
   marketplace String
   title String
   price Float
+  flipScore Int?
   url String
   createdAt DateTime @default(now())
 
@@ -63,4 +68,5 @@ model CollectionItem {
   createdAt DateTime @default(now())
 
   user User @relation(fields:[userId], references:[id])
+  shirt Shirt @relation(fields:[shirtId], references:[id])
 }
